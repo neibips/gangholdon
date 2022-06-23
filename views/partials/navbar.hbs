@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">B2B площадка</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {{#if isHome}}
+                <li class="nav-item active"><a class="nav-link" href="/">Главная</a></li>
+            {{else}}
+                <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+            {{/if}}
+
+            {{#if isCourses}}
+                <li class="nav-item active"><a class="nav-link" href="/courses">Фирмы</a></li>
+            {{else}}
+                <li class="nav-item"><a class="nav-link" href="/courses">Фирмы</a></li>
+            {{/if}}
+
+            {{#if isMarket}}
+                <li class="nav-item active"><a class="nav-link" href="/market">Площадка</a></li>
+            {{else}}
+                <li class="nav-item"><a class="nav-link" href="/market">Площадка</a></li>
+            {{/if}}
+
+            {{#if isAuth}}
+                {{#if isAdd}}
+                    <li class="nav-item active"><a class="nav-link" href="/add">Добавить фирму</a></li>
+                {{else}}
+                    <li class="nav-item"><a class="nav-link" href="/add">Добавить фирму</a></li>
+                {{/if}}
+
+                {{#if isCard}}
+                    <li class="nav-item active"><a class="nav-link" href="/card">Избранное</a></li>
+                {{else}}
+                    <li class="nav-item"><a class="nav-link" href="/card">Избранное</a></li>
+                {{/if}}
+
+                {{#if isProfile}}
+                    <li class="nav-item active"><a class="nav-link" href="/profile">Профиль</a></li>
+                {{else}}
+                    <li class="nav-item"><a class="nav-link" href="/profile">Профиль</a></li>
+                {{/if}}
+
+                <li class="nav-item"><a class="nav-link" href="/auth/logout">Выйти</a></li>
+            {{else}}
+                <div class="container bg-success text-white rounded">
+                {{#if isLogin}}
+                    <li class="nav-item active"><a class="nav-link" href="/auth/login">Войти</a></li>
+                {{else}}
+                    <li class="nav-item"><a class="nav-link" href="/auth/login">Войти</a></li>
+                {{/if}}
+                {{#if isSignin}}
+                    <li class="nav-item active"><a class="nav-link" href="/auth/signin">Регистрация</a></li>
+                {{else}}
+                    <li class="nav-item"><a class="nav-link" href="/auth/signin">Регистрация</a></li>
+                {{/if}}
+                </div>
+            {{/if}}
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="get" action="/courses">
+            <input id="search" name = "search" class="form-control mr-sm-2" type="search" placeholder="Поиск фирмы" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+        </form>
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+
+<div class="jumbotron">
+    {{#if user.avatarUrl}}
+        <img class="rounded-circle mx-auto d-block w-25 p-3 img-fluid" src="/{{user.avatarUrl}}" alt="Фото профиля">
+    {{else}}
+        <img class="rounded-circle mx-auto d-block w-25 p-3 img-fluid" src="https://image.flaticon.com/icons/svg/2945/2945298.svg" alt="">
+    {{/if}}
+    <p class="display-4 text-center">Здравствуйте, {{user.name}}</p>
+    <p class="lead text-center">Ваш email: <strong>{{user.email}}</strong></p>
+    <hr class="my-4">
+    <div class="col s6">
+        <p></p>
+        <form action="/profile" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Ваше новое имя</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="custom-file mb-3">
+                <input type="file" name="avatar" class="custom-file-input" id="avatar">
+                <label class="custom-file-label" for="avatar">Новое фото</label>
+            </div>
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <div class="row d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-success ml-2">Изменить данные</button>
+                <a class="btn btn-outline-danger ml-2" href="/reset" role="button">Сменить пароль</a>
+            </div>
+        </form>
+    </div>
+    <p class="lead">
+
+    </p>
+</div>

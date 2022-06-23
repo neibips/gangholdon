@@ -1,0 +1,54 @@
+<h1>Карточки фирм</h1>
+<form action="/courses" method="get">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle"  role="button" id="filterSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Город
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <button class="dropdown-item" type="submit">Уфа</button>
+                <button class="dropdown-item" type="submit">Москва</button>
+                <button class="dropdown-item" type="submit">Сочи</button>
+            </div>
+        </div>
+</form>
+
+<div class="coursesDiv">
+
+{{#if courses.length}}
+    {{#each courses}}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{img}}" class="card-img" alt="{{title}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{company}}</p>
+                        <div class="card-action actions row">
+                                <a class="btn btn-outline-success btn-sm" href="/courses/{{_id}}" target="_blank">Открыть карточку</a>
+                                {{#if @root.isAuth}}
+
+                                    {{#ifeq userId._id @root.userId}}
+                                        <a class="btn btn-outline-success btn-sm" href="/courses/{{_id}}/edit?allow=true">Редактировать</a>
+                                    {{/ifeq}}
+                                    <form action="/card/add" role="button" method="POST">
+                                        <input type="hidden" name="id" value="{{_id}}">
+                                        <input type="hidden" name="_csrf" value = "{{@root.csrf}}">
+
+                                        <button type="submit" class="btn btn-outline-success btn-sm">в избранное</button>
+                                    </form>
+                                {{/if}}
+
+                        </div>
+                        <p class="card-text"><small class="text-muted">Город: {{city}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+    <p>Курсов пока нет</p>
+{{/if}}
+
+</div>

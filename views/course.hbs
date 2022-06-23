@@ -1,0 +1,30 @@
+<h1>{{course.title}}</h1>
+
+<div class="row no-gutters bg-light position-relative">
+     <div class="col-md-6 mb-md-0 p-md-4">
+         <img src="{{course.img}}" class="w-100" alt="...">
+     </div>
+     <div class="col-md-6 position-static p-4 pl-md-0">
+         <h5 class="mt-0">Описание фирмы</h5>
+         <p>{{course.about}}</p>
+         <h5>Город</h5>
+         <p>{{course.city}}</p>
+         <div class="container bg-secondary p-3 text-light rounded">
+             <h5>Предложение</h5>
+             <p>{{course.offer}}</p>
+             <h5>Запрос</h5>
+             <p>{{course.requestF}}</p>
+         </div>
+
+
+         <div class="float-right">
+         <h5>Для связи:</h5>
+         <a class="contacts" href="{{course.telegram}}" ><i class="fab fa-telegram fa-3x"></i></a>
+         <a class="contacts" href="{{course.telegram}}" ><i class="fas fa-phone-square fa-3x"></i></a>
+         </div>
+
+         {{#if course.site.length}}
+            <p><a href="{{course.site}}" class="btn btn-outline-success my-4">Посетить сайт</a></p>
+         {{/if}}
+     </div>
+</div>

@@ -1,0 +1,78 @@
+<h1>Карточка вашей фирмы</h1>
+
+{{#if error}}
+<p>{{error}}</p>
+{{/if}}
+
+<form action="/add" method="POST">
+    <div class="form-group">
+        <label for="title">Название фирмы</label>
+        <input type="text" class="form-control" name="title" id="title" required value="{{data.title}}">
+    </div>
+    <div class="form-group">
+        <label for="company">Краткая информация</label>
+        <input type="text" class="form-control" name="company" id="company" required value="{{data.company}}">
+    </div>
+
+    <div class="form-group">
+        <label for="img">Картинка фирмы</label>
+        <input type="text" class="form-control" name="img" id="img" required value="{{data.img}}">
+    </div>
+
+
+    <div class="form-group">
+        <label  for="city">Ваш город</label>
+        <select class="form-control" name="city" id="city">
+            <option>Уфа</option>
+            <option>Москва</option>
+            <option>Сочи</option>
+            <option>Казань</option>
+            <option>Санкт-Петербург</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="about">Описание вашей фирмы</label>
+        <textarea class="form-control" name="about" id="about" required>{{data.about}}</textarea>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="offer">Что вы можете предложить</label>
+            <textarea class="form-control" name="offer" id="offer" required>{{data.offer}}</textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="requestF">Что вам требуется</label>
+            <textarea class="form-control" name="requestF" id="requestF" required>{{data.requestF}}</textarea>
+        </div>
+    </div>
+
+
+    <div class="form-row my-4">
+        <div class="form-group col-md-6">
+            <label for="phone">Номер телефона</label>
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                <input type="phone" name="phone" id="phone" class="form-control rounded-right" value="{{data.phone}}">
+
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="telegram">telegram</label>
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fab fa-telegram-plane"></i></span>
+                <input type="text" name="telegram" id="telegram" class="form-control rounded-right">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="site">Ваш сайт</label>
+        <input type="text" class="form-control" name="site" id="site" value="{{data.site}}">
+    </div>
+
+    <input type="hidden" name="_csrf" value = "{{csrf}}">
+
+    <button class="btn btn-primary">Добавить фирму</button>
+</form>

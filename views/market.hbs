@@ -1,0 +1,23 @@
+
+
+<div class="jumbotron">
+    <h1 class="display-4">Торговая площадка</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Запрос/предложение</th>
+            <th scope="col">Фирма</th>
+            <th scope="col">Контакты</th>
+        </tr>
+        <tbody>
+        {{#each tickets}}
+        <tr>
+            <td>{{ticket}}</td>
+            <td>{{courseId.title}}</td>
+            <td>{{courseId.phone}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+</div>

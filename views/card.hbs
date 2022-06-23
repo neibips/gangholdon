@@ -1,0 +1,32 @@
+<h1>Избранное</h1>
+<h1 style="font-style: italic;">ваня гей</h1>
+<div id="card">
+    {{#if courses.length}}
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {{#each courses}}
+                <tr>
+                    <td scope="row"><strong>{{title}}</strong></td>
+                    <td scope="row">
+                        <button
+                                class="btn btn-outline-success js-remove"
+                                data-id="{{id}}"
+                                data-csrf="{{@root.csrf}}"
+                        >Удалить</button>
+                        <a href="/courses/{{id}}" class="btn btn-outline-success">Перейти</a>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Вы еще не добавили избранных фирм</p>
+    {{/if}}
+</div>
